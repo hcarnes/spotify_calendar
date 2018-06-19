@@ -15,7 +15,7 @@ export function addEvent(eventToAdd) {
         start: convertHourMinutePairToDate(eventToAdd.date, eventToAdd.startTime),
         end: convertHourMinutePairToDate(eventToAdd.date, eventToAdd.endTime),
       }
-    })
+    });
     const eventResponse = await fetch('http://localhost:3001/events', {
       headers: {
         'Accept': 'application/json',
@@ -23,8 +23,8 @@ export function addEvent(eventToAdd) {
       },
       body: eventJSON,
       method: "post"
-    })
-    const event = await eventResponse.json()
-    dispatch({ type: 'ADD_EVENT', event })
+    });
+    const event = await eventResponse.json();
+    dispatch({ type: 'ADD_EVENT', event });
   };
 }

@@ -1,5 +1,13 @@
 class EventsController < ApplicationController
 
+  def index
+    date = Date.parse(params[:date])
+    events = Event.where(%Q[
+      EXTRACT(month FROM events.start) = ? AND EXTRACT(year FROM events.start) = ?
+    ], date.month, date.year)
+    render json: events
+  end
+
   def create
     event = Event.new(params.require(:event).permit(:description, :start, :end))
     if event.save

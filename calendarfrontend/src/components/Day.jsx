@@ -46,4 +46,4 @@ const mapStateToProps = (state, ownProps) => {
   return { events: state.events.filter(event => isSameDay(event.start, ownProps.date)) };
 };
 
-export default connect(mapStateToProps)(Day)
+export default connect(mapStateToProps)(Day);
