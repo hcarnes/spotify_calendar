@@ -43,7 +43,7 @@ class Day extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return { events: state.events.filter(event => isSameDay(event.date, ownProps.date)) };
+  return { events: state.events.filter(event => isSameDay(event.start, ownProps.date)) };
 };
 
 export default connect(mapStateToProps)(Day)
