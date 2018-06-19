@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Month from './Month';
-import addMonths from 'date-fns/add_months'
-import startOfMonth from 'date-fns/start_of_month'
+import addMonths from 'date-fns/add_months';
+import startOfMonth from 'date-fns/start_of_month';
 
 class Calendar extends Component {
   constructor() {

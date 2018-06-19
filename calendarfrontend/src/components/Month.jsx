@@ -10,15 +10,15 @@ class Month extends Component {
 
   renderDays = () => {
     const endOfMonth = lastDayOfMonth(this.props.date);
-    const daysOfMonth = eachDay(this.props.date, endOfMonth)
+    const daysOfMonth = eachDay(this.props.date, endOfMonth);
 
     return daysOfMonth.map(date => {
       return (
         <div>
           Day: {date.getDate()}
         </div>
-      )
-    })
+      );
+    });
   }
 
   render() {
