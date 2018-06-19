@@ -33,7 +33,7 @@ class Day extends Component {
           <EventForm selectedDate={this.props.date} onSuccess={this.closeCreateEventForm} />
         </Modal>
         <p>
-          <ul>
+          <ul class="eventList">
             {this.props.events.map(e => (<li>{e.description}</li>))}
           </ul>
         </p>

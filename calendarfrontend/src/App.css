@@ -2,7 +2,11 @@
   text-align: center;
 }
 
-ul {
+* {
+  font-size: 18px
+}
+
+ul.days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   margin: 0 auto;
@@ -11,15 +15,10 @@ ul {
   grid-gap: 10px;
 }
 
-li {
+ul.days li {
   display: flex;
-  align-items: center;
-  justify-content: center;
   list-style: none;
   margin-left: 0;
-}
-
-ul.days li {
   background-color: #eaeaea;
   border: 1px solid #eaeaea;
   height: 12vw;
@@ -32,4 +31,15 @@ ul.days li {
   padding: 0 10px;
   cursor: pointer;
   font-size: 18pt;
+}
+
+ul.eventList {
+  all: unset;
+}
+
+ul.eventList li {
+  all: unset;
+  display: block;
+  font-size: 2vmin;
+  text-align: left;
 }
