@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import format from 'date-fns/format'
 import lastDayOfMonth from 'date-fns/last_day_of_month'
 import eachDay from 'date-fns/each_day'
+import Day from './Day';
 
 class Month extends Component {
   formatMonth = () => {
@@ -14,8 +15,8 @@ class Month extends Component {
 
     return daysOfMonth.map(date => {
       return (
-        <div>
-          Day: {date.getDate()}
+        <div key={date}>
+          <Day date={date} />
         </div>
       );
     });
