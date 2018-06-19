@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import EventForm from './EventForm';
 import isSameDay from 'date-fns/is_same_day'
 import { connect } from 'react-redux';
+import EventList from './EventList';
 
 class Day extends Component {
 
@@ -33,9 +34,7 @@ class Day extends Component {
           <EventForm selectedDate={this.props.date} onSuccess={this.closeCreateEventForm} />
         </Modal>
         <p>
-          <ul class="eventList">
-            {this.props.events.map(e => (<li>{e.description}</li>))}
-          </ul>
+          <EventList events={this.props.events} />
         </p>
       </li>
     );
