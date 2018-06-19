@@ -3,8 +3,7 @@ export default function eventsReducer(state = {
 }, action) {
   switch (action.type) {
     case "ADD_EVENT":
-      return { ...state, events: [...state.events, action.event] }
-    // TODO
+      return { ...state, events: [...state.events, action.event] };
     default:
       console.debug(action)
       return state;

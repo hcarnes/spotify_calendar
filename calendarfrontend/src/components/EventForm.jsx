@@ -8,11 +8,11 @@ class EventForm extends Component {
   handleOnSubmit = (event) => {
     event.preventDefault();
     const eventData = new FormData(event.target);
-    const eventObject = {}
+    const eventObject = {};
     for (const [key, value] of eventData.entries()) {
       eventObject[key] = value;
     }
-    console.log(eventObject);
+
     this.props.addEvent({ ...eventObject, date: this.props.selectedDate });
     this.props.onSuccess();
   }
