@@ -32,7 +32,6 @@ class Day extends Component {
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeCreateEventForm}
-          contentLabel="Example Modal"
         >
           <EventForm selectedDate={this.props.date} onSubmit={this.createEvent} />
         </Modal>
