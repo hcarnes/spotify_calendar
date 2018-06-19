@@ -15,9 +15,7 @@ class Month extends Component {
 
     return daysOfMonth.map(date => {
       return (
-        <li key={date}>
-          <Day date={date} />
-        </li>
+        <Day date={date} key={date} />
       );
     });
   }
