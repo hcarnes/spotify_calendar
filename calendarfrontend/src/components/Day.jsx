@@ -20,11 +20,6 @@ class Day extends Component {
     this.setState({ modalIsOpen: true });
   }
 
-  createEvent = (ev) => {
-    ev.preventDefault();
-    this.closeCreateEventForm();
-  }
-
   render() {
     return (
       <li onClick={this.showCreateEventForm}>
@@ -33,7 +28,7 @@ class Day extends Component {
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeCreateEventForm}
         >
-          <EventForm selectedDate={this.props.date} onSubmit={this.createEvent} />
+          <EventForm selectedDate={this.props.date} onSuccess={this.closeCreateEventForm} />
         </Modal>
       </li>
     );

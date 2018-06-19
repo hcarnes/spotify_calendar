@@ -1,22 +1,37 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { addEvent } from '../actions/addEvent';
 
 class EventForm extends Component {
 
+  handleOnSubmit = (event) => {
+    event.preventDefault();
+    const eventData = new FormData(event.target);
+    const eventObject = {}
+    for (const [key, value] of eventData.entries()) {
+      eventObject[key] = value;
+    }
+    console.log(eventObject);
+    this.props.addEvent(eventObject);
+    this.props.onSuccess();
+  }
+
   render() {
     return (
-      <form onSubmit={this.props.onSubmit}>
+      <form onSubmit={this.handleOnSubmit}>
         New Event on {this.props.selectedDate.toString()}
         <p>
           <label htmlFor="description">Description</label>
-          <input type="text" id="description" />
+          <input type="text" id="description" name="description" />
         </p>
         <p>
           <label htmlFor="startTime">Start Time</label>
-          <input type="time" id="startTime" />
+          <input type="time" id="startTime" name="startTime" />
         </p>
         <p>
           <label htmlFor="endTime">End Time</label>
-          <input type="time" id="endTime" />
+          <input type="time" id="endTime" name="endTime" />
         </p>
         <p>
           <input type="submit" value="Create Event" />
@@ -26,4 +41,10 @@ class EventForm extends Component {
   }
 }
 
-export default EventForm;
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    addEvent: addEvent
+  }, dispatch);
+};
+
+export default connect(null, mapDispatchToProps)(EventForm);
