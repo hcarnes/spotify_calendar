@@ -4,9 +4,9 @@ import addMonths from 'date-fns/add_months'
 
 class Month extends Component {
   calculateMonth = () => {
-    const currentDate = new Date()
-    const shiftedDate = addMonths(currentDate, this.props.monthOffset)
-    return format(shiftedDate, "MMMM")
+    const currentDate = new Date();
+    const shiftedDate = addMonths(currentDate, this.props.monthOffset);
+    return format(shiftedDate, "MMMM");
   }
 
   render() {

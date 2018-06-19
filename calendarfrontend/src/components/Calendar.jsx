@@ -3,15 +3,15 @@ import Month from './Month';
 
 class Calendar extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       monthOffset: 0
-    }
+    };
   }
   nextMonth = () => {
     this.setState({
       monthOffset: this.state.monthOffset + 1
-    })
+    });
   }
 
   render() {
