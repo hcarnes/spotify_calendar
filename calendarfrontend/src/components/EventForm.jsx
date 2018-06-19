@@ -13,7 +13,7 @@ class EventForm extends Component {
       eventObject[key] = value;
     }
     console.log(eventObject);
-    this.props.addEvent(eventObject);
+    this.props.addEvent({ ...eventObject, date: this.props.selectedDate });
     this.props.onSuccess();
   }
 

@@ -11,6 +11,6 @@ export function addEvent(eventToAdd) {
     //   method: "post"
     // })
     // const plant = await plantResponse.json()
-    dispatch({ type: 'ADD_EVENT', eventToAdd })
+    dispatch({ type: 'ADD_EVENT', event: eventToAdd })
   };
 }

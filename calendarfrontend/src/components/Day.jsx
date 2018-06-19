@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 import EventForm from './EventForm';
+import isSameDay from 'date-fns/is_same_day'
+import { connect } from 'react-redux';
 
 class Day extends Component {
 
@@ -30,9 +32,18 @@ class Day extends Component {
         >
           <EventForm selectedDate={this.props.date} onSuccess={this.closeCreateEventForm} />
         </Modal>
+        <div>
+          <ul>
+            {this.props.events.map(e => (<li>{e.description}</li>))}
+          </ul>
+        </div>
       </li>
     );
   }
 }
 
-export default Day;
+const mapStateToProps = (state, ownProps) => {
+  return { events: state.events.filter(event => isSameDay(event.date, ownProps.date)) };
+};
+
+export default connect(mapStateToProps)(Day)
