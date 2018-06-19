@@ -17,7 +17,6 @@ li {
   justify-content: center;
   list-style: none;
   margin-left: 0;
-  font-size: calc(16px + (21 - 16) * ((100vw - 300px) / (1600 - 300)));
 }
 
 ul.days li {
