@@ -24,8 +24,8 @@ class Day extends Component {
 
   render() {
     return (
-      <li onClick={this.showCreateEventForm}>
-        {this.props.date.getDate()}
+      <li>
+        <span onClick={this.showCreateEventForm}>{this.props.date.getDate()}</span>
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeCreateEventForm}
