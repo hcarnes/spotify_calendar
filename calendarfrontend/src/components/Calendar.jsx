@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import Month from './Month';
+import addMonths from 'date-fns/add_months'
 
 class Calendar extends Component {
   constructor() {
     super();
     this.state = {
-      monthOffset: 0
+      selectedMonth: new Date()
     };
   }
   nextMonth = () => {
     this.setState({
-      monthOffset: this.state.monthOffset + 1
+      selectedMonth: addMonths(this.state.selectedMonth, 1)
     });
   }
 
@@ -18,7 +19,7 @@ class Calendar extends Component {
     return (
       <div>
         <div onClick={this.nextMonth}>Next Month</div>
-        <Month monthOffset={this.state.monthOffset} />
+        <Month date={this.state.selectedMonth} />
       </div>
     );
   }
