@@ -42,7 +42,11 @@ class Day extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return { events: state.events.filter(event => isSameDay(event.start, ownProps.date)) };
+  const events = state.events
+    .filter(event => isSameDay(event.start, ownProps.date))
+    .sort((a, b) => a.start - b.start)
+
+  return { events };
 };
 
 export default connect(mapStateToProps)(Day);
