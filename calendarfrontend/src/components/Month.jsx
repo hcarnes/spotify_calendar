@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import format from 'date-fns/format'
 import lastDayOfMonth from 'date-fns/last_day_of_month'
 import eachDay from 'date-fns/each_day'
 import Day from './Day';
@@ -8,9 +7,6 @@ import { bindActionCreators } from 'redux';
 import { fetchMonthEvents } from '../actions/fetchMonthEvents';
 
 class Month extends Component {
-  formatMonth = () => {
-    return format(this.props.date, "MMMM");
-  }
 
   renderDays = () => {
     const endOfMonth = lastDayOfMonth(this.props.date);
@@ -36,7 +32,6 @@ class Month extends Component {
   render() {
     return (
       <div>
-        <div>{this.formatMonth()}</div>
         <ul className="days">{this.renderDays()}</ul>
       </div>
     );
