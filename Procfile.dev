@@ -1,0 +1,2 @@
+web: cd calendarfrontend && yarn start
+api: cd CalendarBackend && bundle exec rails s -p 3001

@@ -16,7 +16,7 @@ export function updateEvent(eventToUpdate) {
         end: convertHourMinutePairToDate(eventToUpdate.date, eventToUpdate.endTime),
       }
     });
-    const eventResponse = await fetch(`http://localhost:3001/events/${eventToUpdate.id}`, {
+    const eventResponse = await fetch(`${process.env.REACT_APP_BACKEND_HOST}/events/${eventToUpdate.id}`, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'

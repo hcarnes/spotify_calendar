@@ -2,7 +2,7 @@ export function deleteEvent(eventId) {
   return async (dispatch) => {
     dispatch({ type: 'START_DELETING_EVENT' });
 
-    const eventResponse = await fetch(`http://localhost:3001/events/${eventId}`, {
+    const eventResponse = await fetch(`${process.env.REACT_APP_BACKEND_HOST}/events/${eventId}`, {
       headers: {
         'Accept': 'application/json',
       },

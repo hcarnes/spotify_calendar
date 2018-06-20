@@ -16,7 +16,7 @@ export function addEvent(eventToAdd) {
         end: convertHourMinutePairToDate(eventToAdd.date, eventToAdd.endTime),
       }
     });
-    const eventResponse = await fetch('http://localhost:3001/events', {
+    const eventResponse = await fetch(`${process.env.REACT_APP_BACKEND_HOST}/events`, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
