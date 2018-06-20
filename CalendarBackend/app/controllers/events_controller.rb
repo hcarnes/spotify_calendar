@@ -16,4 +16,13 @@ class EventsController < ApplicationController
       head :unprocessable_entity
     end
   end
+
+  def update
+    event = Event.find(params[:id])
+    if event.update(params.require(:event).permit(:description, :start, :end))
+      render json: event
+    else
+      head :unprocessable_entity
+    end
+  end
 end

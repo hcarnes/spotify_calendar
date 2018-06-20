@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addEvent } from '../actions/addEvent';
+import { updateEvent } from '../actions/updateEvent';
 import format from 'date-fns/format';
 
 class EventForm extends Component {
@@ -23,7 +24,11 @@ class EventForm extends Component {
   handleOnSubmit = (event) => {
     event.preventDefault();
 
-    this.props.addEvent({ ...this.state.event, date: this.props.selectedDate });
+    if (this.state.event.id) {
+      this.props.updateEvent({ ...this.state.event, date: this.props.selectedDate });
+    } else {
+      this.props.addEvent({ ...this.state.event, date: this.props.selectedDate });
+    }
     this.props.onSuccess();
   }
 
@@ -38,7 +43,7 @@ class EventForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleOnSubmit}>
-        New Event on {this.props.selectedDate.toString()}
+        Event on {this.props.selectedDate.toString()}
         <p>
           <label htmlFor="description">Description</label>
           <input type="text" id="description" name="description" value={this.state.event.description} onChange={this.handleChange} />
@@ -52,7 +57,7 @@ class EventForm extends Component {
           <input type="time" id="endTime" name="endTime" value={this.state.event.endTime} onChange={this.handleChange} />
         </p>
         <p>
-          <input type="submit" value="Create Event" />
+          <input type="submit" value="Save Event" />
         </p>
       </form>
     );
@@ -61,7 +66,8 @@ class EventForm extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    addEvent: addEvent
+    addEvent,
+    updateEvent
   }, dispatch);
 };
 
