@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addEvent } from '../actions/addEvent';
+import format from 'date-fns/format';
 
 class EventForm extends Component {
   constructor(props) {
     super(props);
 
     if (props.event) {
+      const startTime = format(props.event.start, "HH:mm")
+      const endTime = format(props.event.end, "HH:mm")
+
       this.state = {
-        event: Object.assign({}, props.event)
+        event: Object.assign({ startTime, endTime }, props.event)
       }
     } else {
       this.state = { event: {} }

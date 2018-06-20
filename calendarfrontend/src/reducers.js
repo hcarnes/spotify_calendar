@@ -7,9 +7,9 @@ export default function eventsReducer(state = {
       return {
         ...event,
         start: parse(event.start),
-        end: parse(event.start),
-        created_at: parse(event.start),
-        updated_at: parse(event.start),
+        end: parse(event.end),
+        created_at: parse(event.created_at),
+        updated_at: parse(event.updated_at),
       }
     });
   };
