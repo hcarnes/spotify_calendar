@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addEvent } from '../actions/addEvent';
 import { updateEvent } from '../actions/updateEvent';
+import { deleteEvent } from '../actions/deleteEvent';
 import format from 'date-fns/format';
 
 class EventForm extends Component {
@@ -32,6 +33,11 @@ class EventForm extends Component {
     this.props.onSuccess();
   }
 
+  deleteEvent = () => {
+    this.props.deleteEvent(this.state.event.id);
+    this.props.onSuccess();
+  }
+
   handleChange = (ev) => {
     const event = {
       ...this.state.event,
@@ -58,6 +64,7 @@ class EventForm extends Component {
         </p>
         <p>
           <input type="submit" value="Save Event" />
+          {this.state.event.id && <input type="submit" value="Delete Event" onClick={this.deleteEvent} />}
         </p>
       </form>
     );
@@ -67,7 +74,8 @@ class EventForm extends Component {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     addEvent,
-    updateEvent
+    updateEvent,
+    deleteEvent
   }, dispatch);
 };
 

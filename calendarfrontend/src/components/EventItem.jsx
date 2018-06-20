@@ -12,26 +12,26 @@ class EventItem extends Component {
     };
   }
 
-  closeCreateEventForm = () => {
+  closeEventForm = () => {
     this.setState({ modalIsOpen: false });
   }
 
-  showCreateEventForm = () => {
+  showEventForm = () => {
     this.setState({ modalIsOpen: true });
   }
 
   render() {
     return (
-      <li onClick={this.showCreateEventForm}>
+      <li onClick={this.showEventForm}>
         <div className="eventItemElement">{this.props.event.description}</div>
         <div className="eventItemElement">
           {format(this.props.event.start, "H:mm")}
         </div>
         <Modal
           isOpen={this.state.modalIsOpen}
-          onRequestClose={this.closeCreateEventForm}
+          onRequestClose={this.closeEventForm}
         >
-          <EventForm selectedDate={this.props.event.start} event={this.props.event} onSuccess={this.closeCreateEventForm} />
+          <EventForm selectedDate={this.props.event.start} event={this.props.event} onSuccess={this.closeEventForm} />
         </Modal>
       </li>
     );

@@ -25,4 +25,13 @@ class EventsController < ApplicationController
       head :unprocessable_entity
     end
   end
+
+  def destroy
+    event = Event.find(params[:id])
+    if event.destroy
+      render json: event
+    else
+      head :unprocessable_entity
+    end
+  end
 end

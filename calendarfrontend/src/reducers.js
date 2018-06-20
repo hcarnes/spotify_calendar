@@ -19,6 +19,9 @@ export default function eventsReducer(state = {
     case "UPDATE_EVENT":
       const eventsWithoutUpdated = state.events.filter(e => e.id !== action.event.id)
       return { ...state, events: [...eventsWithoutUpdated, ...convertDates([action.event])] }
+    case "DELETE_EVENT":
+      const eventsWithoutDeleted = state.events.filter(e => e.id !== action.event.id)
+      return { ...state, events: eventsWithoutDeleted }
     case "ADD_EVENTS":
       return { ...state, events: convertDates(action.events) };
     default:
